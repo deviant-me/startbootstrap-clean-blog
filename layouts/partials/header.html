@@ -18,6 +18,12 @@
     <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
     {{ end }}
 
+    {{ if .IsTranslated }}
+        {{ range .Translations }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+        {{ end }}
+    {{ end }}
+
     <!-- Bootstrap Core CSS -->
     <link href="{{ .Site.BaseURL }}/css/bootstrap.min.css" rel="stylesheet">
 
